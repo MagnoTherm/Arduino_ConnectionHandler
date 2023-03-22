@@ -125,7 +125,7 @@
 #if defined(ARDUINO_ARCH_ESP32)
   #include <WiFi.h>
   #include <WiFiUdp.h>
-  
+
   #define BOARD_HAS_WIFI
   #define NETWORK_HARDWARE_ERROR WL_NO_SHIELD
   #define NETWORK_IDLE_STATUS WL_IDLE_STATUS
@@ -253,12 +253,10 @@ class ConnectionHandler {
 
 #if defined(BOARD_HAS_WIFI)
   #include "Arduino_WiFiConnectionHandler.h"
-#elif defined(BOARD_HAS_GSM)
+#endif
+
+#if defined(BOARD_HAS_GSM)
   #include "Arduino_GSMConnectionHandler.h"
-#elif defined(BOARD_HAS_NB)
-  #include "Arduino_NBConnectionHandler.h"
-#elif defined(BOARD_HAS_LORA)
-  #include "Arduino_LoRaConnectionHandler.h"
 #endif
 
 #if defined(BOARD_HAS_ETHERNET)
